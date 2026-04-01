@@ -1,335 +1,625 @@
-# HAE Strategic Analysis Manual
-## Medical Affairs × Marketing × HEOR 統合戦略分析フレームワーク
+# 製薬戦略分析フレームワーク
+## Medical Affairs x Marketing x HEOR 統合戦略分析の方法論
 
 ---
 
-## Overview
+## Part 1: フレームワークの設計思想
 
-本マニュアルは、遺伝性血管性浮腫（HAE）領域における Medical Affairs、Marketing、HEORの統合戦略分析を再現性をもって実施するための標準作業手順書（SOP）である。
+### 1.1 なぜ11成果物なのか
 
-**アウトプット一覧（11成果物）:**
+製薬品の戦略分析は、以下の4つの根本的な問いに答える必要がある:
 
-| # | 成果物 | 目的 |
-|---|--------|------|
-| 1 | Executive Summary | 全体俯瞰と意思決定要約 |
-| 2 | U.S. Strategy Flow | 米国市場の戦略フロー |
-| 3 | International Strategy (INTL) Flow | 国際市場の戦略フロー |
-| 4 | U.S. vs INTL SWOT | 地域間の強み・弱み比較 |
-| 5 | Above-Market Integration | グローバル統合戦略 |
-| 6 | X1→X2→Y→Z Chain | 戦略→戦術→エビデンス→Publication |
-| 7 | Vulnerability Analysis | 脆弱性分析 |
-| 8 | KPIs | 主要業績指標 |
-| 9 | IEGP Strategic Materials | 統合エビデンス生成計画の素材 |
-| 10 | FY27 HAE Summary | 年次サマリー |
-| 11 | KPI/KGI Alignment Diagram | 指標整合性ダイアグラム |
+| 問い | 対応する成果物 |
+|------|--------------|
+| **我々はどこにいるのか** (現状把握) | 疾患ランドスケープ、競合分析、KOLマップ |
+| **我々はどこに向かうのか** (戦略方向) | U.S. Strategy Flow、INTL Flow、U.S. vs INTL SWOT、Above-Market Integration |
+| **どうやってそこに到達するか** (実行設計) | X1→X2→Y→Z Chain、IEGP Strategic Materials、KPI/KGI体系 |
+| **何が計画を狂わせるか** (リスク管理) | Vulnerability Analysis、シナリオ対応計画 |
+
+11成果物はこれらの問いを漏れなく、かつ重複なくカバーする最小構成である。成果物を追加・削除する場合は、どの問いがカバーされなくなるかを検証すること。
+
+**11成果物一覧:**
+
+| # | 成果物 | 答える問い | 主たる利用者 |
+|---|--------|-----------|------------|
+| 1 | Executive Summary | 全体の意思決定要約 | 経営層 |
+| 2 | 市場A Strategy Flow | 最大市場の戦略フロー | 市場Aチーム |
+| 3 | 市場B/INTL Strategy Flow | 他市場の戦略フロー | 各地域チーム |
+| 4 | 市場A vs INTL SWOT | 地域間の強み・弱み比較 | グローバル戦略 |
+| 5 | Above-Market Integration | グローバル統合戦略 | グローバルリーダー |
+| 6 | X1→X2→Y→Z Chain | 戦略→戦術→エビデンス→Publication | 全部門 |
+| 7 | Vulnerability Analysis | 脆弱性・リスク分析 | リスク管理 |
+| 8 | KPIs | 主要業績指標 | 全部門 |
+| 9 | IEGP Strategic Materials | 統合エビデンス生成計画 | Medical/HEOR |
+| 10 | 年次サマリー | 年間実績と次年度示唆 | 経営層 |
+| 11 | KPI/KGI Alignment Diagram | 指標間の因果関係図 | Analytics |
+
+### 1.2 成果物間の依存関係と作成順序
+
+```
+[疾患ランドスケープ・競合分析・KOLマップ]     ← 全ての基盤（最初に作る）
+        │
+        ▼
+[Strategy Flow (市場A・INTL)]                 ← ランドスケープに基づく戦略設計
+        │
+        ▼
+[SWOT + Above-Market Integration]             ← 地域戦略の比較と統合
+        │
+        ▼
+[X1→X2→Y→Z Chain]                            ← 統合戦略の実行連鎖
+        │
+        ├──▶ [IEGP]                           ← Y（エビデンス）の実行計画
+        ├──▶ [Vulnerability Analysis]          ← 連鎖の各ノードのリスク評価
+        └──▶ [KPI/KGI]                        ← 連鎖の各ノードの測定設計
+                │
+                ▼
+        [Executive Summary + 年次サマリー]     ← 全体の統合（最後に作る）
+```
+
+**順序の理由:**
+- ランドスケープなしに戦略は設計できない（事実→判断の順序）
+- 地域戦略なしにグローバル統合はできない（部分→全体の順序）
+- X1→X2→Y→Z なしにIEGPやKPIは設計できない（目的→手段の順序）
+- Executive Summaryは全成果物の統合なので最後
+
+### 1.3 3部門統合の原則
+
+Medical Affairs、Marketing、HEORは以下の理由で分離しがちである:
+
+| 分離の原因 | 統合のメカニズム |
+|-----------|----------------|
+| **KPIが異なる**: Medical=論文数、Marketing=売上、HEOR=HTA承認率 | 共通のKGI（患者到達数）への因果マップで全KPIを接続 |
+| **言語が異なる**: Medical=エビデンス、Marketing=メッセージ、HEOR=経済性 | X1→X2→Y→Z Chainで「同じ戦略の異なる側面」として可視化 |
+| **タイムラインが異なる**: Medical=2-3年、Marketing=四半期、HEOR=HTA提出時期 | Above-Market統合でマイルストーンを同期 |
+| **規制上の壁**: Medical=プロモーション制約、Marketing=規制遵守 | Strategy Flowで合法的なシナジーポイントを明示 |
+
+**統合の実践ルール:**
+1. 全成果物のレビューに3部門の代表が参加する
+2. X1→X2→Y→Z Chainには3部門すべてのX2が含まれる
+3. KPIは3部門それぞれに設定するが、KGIは共通
+4. Vulnerability Analysisは3部門それぞれの視点からリスクを評価する
 
 ---
 
-## Phase 1: 疾患ランドスケープ分析（Day 1-3）
+## Part 2: 各成果物の作成方法論
 
-### Step 1.1: 疾患理解の更新
+### 成果物1: 疾患ランドスケープ分析
 
-**実施内容:**
-- HAEのType I/II/III分類と患者数の最新推定値
-- 発作の病態生理（ブラジキニン経路）
-- 現行治療パラダイム（予防 vs オンデマンド）
-- アンメットニーズの定量化
+**目的 (Why):**
+全戦略の前提となる「事実の共通基盤」を確立する。チーム全員が同じ事実認識に基づいて意思決定できるようにする。
 
-**データソース:**
-- PubMed/MEDLINE（過去3年の系統レビュー）
-- ClinicalTrials.gov（進行中の試験）
-- 患者レジストリデータ（Icatibant Outcome Survey等）
-- 学会発表（ACAAI, EAACI, WAO）
+**視点 (Perspective):**
+患者の治療体験を中心に据える。疾患の理解は「製品が解決する問題」ではなく「患者が経験する問題」として捉える。
 
-**アウトプット:** 疾患ランドスケープサマリー（1-2ページ）
+**アプローチ (How):**
 
-### Step 1.2: 競合分析
+1. **疾患の基本理解を更新する**
+   - 疾患の分類体系と最新の患者数推定値を確認
+   - 病態生理の主要経路を特定（どの経路が治療標的になるか）
+   - 現行の治療パラダイムを整理（治療アルゴリズムの各段階）
+   - 診断から治療開始までの患者ジャーニーをマッピング
 
-**対象製品:**
+2. **アンメットニーズを定量化する**
+   - 既存治療の限界を列挙（有効性、安全性、利便性、アクセス）
+   - 各ニーズの影響を受ける患者数を推定
+   - ニーズの優先順位を「患者のQOLへの影響度」でランキング
 
-| カテゴリ | 製品 | メーカー | MoA |
-|---------|------|---------|-----|
-| 予防療法（mAb） | Takhzyro (lanadelumab) | Takeda | Anti-kallikrein |
-| 予防療法（経口） | Orladeyo (berotralstat) | BioCryst | Kallikrein inhibitor |
-| 予防療法（SC） | Haegarda (C1-INH SC) | CSL Behring | C1-INH replacement |
-| 予防療法（新規） | Donidalorsen | Ionis/Otsuka | Prekallikrein ASO |
-| 予防療法（新規） | Garadacimab | CSL Behring | Anti-Factor XIIa |
-| オンデマンド | Firazyr (icatibant) | Takeda | B2 receptor antagonist |
-| オンデマンド | Berinert (C1-INH IV) | CSL Behring | C1-INH replacement |
+3. **市場環境を把握する**
+   - 疾患の認知度・診断率（特に希少疾患の場合）
+   - 治療率と処方パターン
+   - 主要な学術団体・患者団体の活動
 
-**分析軸:**
-- 有効性（発作頻度減少率、発作フリー患者割合）
-- 安全性（注射部位反応、肝毒性、免疫原性）
-- 投与利便性（SC自己注射 vs IV vs 経口 vs 頻度）
-- 保険適用・アクセス（Prior Authorization要件、Step therapy）
-- 価格/コスト（WAC、患者自己負担、PPPM）
-- Pipeline脅威（Phase 2/3の新規MoA）
+**データソース (Where):**
+- 学術文献（PubMed/MEDLINE、系統レビュー優先、過去3年）
+- 臨床試験登録（ClinicalTrials.gov、進行中の試験）
+- 患者レジストリ・疫学データベース
+- 学会発表（直近2年の主要学会）
+- 診療ガイドライン（各地域の最新版）
+- 患者アドボカシー団体の報告書
 
-**アウトプット:** 競合比較マトリクス + Pipeline脅威評価
+**品質基準 (Quality Gate):**
+- [ ] 患者数の推定に複数のソースを使用し、範囲を示しているか
+- [ ] 治療アルゴリズムが最新のガイドラインと一致しているか
+- [ ] アンメットニーズが患者視点で記述されているか（製品視点ではなく）
+- [ ] データの鮮度が明記されているか（引用の年次）
 
-### Step 1.3: KOL/Stakeholderマッピング
+**適用例 — HAE:**
+HAEの場合、Type I/II/III分類、ブラジキニン経路の病態生理、予防療法 vs オンデマンド療法のパラダイム、診断遅延（平均8-12年）が主要テーマとなる。患者レジストリとしてIcatibant Outcome Survey等、学会としてACAAI/EAACI/WAOが主要ソースとなる。
 
-**実施内容:**
-- 米国/国際のKOL（Key Opinion Leader）リスト作成
-- 発表論文数/臨床試験参加/学会発表でランキング
-- KOLの立場・バイアスの評価
-- ペイヤー/HTAのキーパーソン特定
+---
 
-**データソース:**
-- PubMed著者検索
+### 成果物2: 競合分析
+
+**目的 (Why):**
+自社製品の市場での位置づけを明確にし、差別化戦略の基盤を作る。HCPが処方選択する際の判断材料を網羅的に把握する。
+
+**視点 (Perspective):**
+「患者の治療選択肢」を起点に考える。製品起点ではなく、「この患者にはどのような選択肢があり、各選択肢はどう評価されるか」という問いから出発する。
+
+**アプローチ (How):**
+
+1. **治療アルゴリズム上の位置を特定する**
+   - 各製品が1st line / 2nd line / adjunctive のどこに位置するか
+   - 同じ位置にある製品同士が直接競合
+
+2. **分類軸を設定する**
+   - MoA（作用機序）別
+   - 投与経路別（経口 / SC / IV）
+   - 対象患者群別（年齢、重症度、合併症）
+
+3. **5つの競合評価軸で定量比較する**
+
+   | 評価軸 | 指標例 | データソース |
+   |-------|--------|------------|
+   | **有効性** | プライマリエンドポイントの結果、NNT | 臨床試験論文、FDA/EMAラベル |
+   | **安全性** | 主要AE頻度、重篤AE、中止率 | 添付文書、安全性データベース |
+   | **利便性** | 投与頻度、投与経路、自己注射可否、保存条件 | 添付文書、患者調査 |
+   | **アクセス** | 保険適用、自己負担、Prior Authorization要件、Step Therapy | ペイヤーデータ、フォーミュラリ |
+   | **エビデンスの厚み** | RCT数、RWE、ガイドライン推奨度、メタ分析 | 文献検索、ガイドライン |
+
+4. **競合の将来動向を3段階で評価する**
+   - **承認済/上市済**: 現在の市場シェアと成長トレンド
+   - **Phase 3**: 承認時期の推定、想定されるポジショニング
+   - **Phase 2以前**: MoAの革新性、成功確率の評価
+
+5. **競合比較マトリクスを作成する**
+   - 横軸: 製品、縦軸: 評価軸
+   - 各セルに定量データ（可能な限り）と定性評価
+   - 自社製品の差別化ポイントを色分け等で明示
+
+**データソース (Where):**
+- FDA/EMA/PMDA承認文書、添付文書
+- ピボタル試験の論文（NEJM, Lancet等）
+- ClinicalTrials.gov（パイプライン把握）
+- ペイヤーフォーミュラリ（保険適用状況）
+- アナリストレポート（市場シェア推定）
+- 学会発表（最新データ）
+
+**品質基準 (Quality Gate):**
+- [ ] 「この比較表を見れば、HCPが処方選択する際の判断材料がすべて揃っている」と言えるか
+- [ ] 直接比較試験がない場合、間接比較の限界が明記されているか
+- [ ] パイプライン情報が3ヶ月以内に更新されているか
+- [ ] 自社製品に不利な情報も含まれているか（確証バイアスの排除）
+
+**適用例 — HAE:**
+HAEでは予防療法（mAb: Takhzyro、経口: Orladeyo、SC: Haegarda、新規: Donidalorsen/Garadacimab）とオンデマンド療法（Firazyr、Berinert等）をMoA別・投与経路別に整理。発作頻度減少率と投与利便性が主要な差別化軸となる。
+
+---
+
+### 成果物3: KOL/ステークホルダーマッピング
+
+**目的 (Why):**
+戦略実行に必要な外部の影響力者を特定し、エンゲージメント計画の基盤を作る。
+
+**視点 (Perspective):**
+「誰が治療の意思決定に影響を与えるか」を多層的に捉える。臨床医だけでなく、ペイヤー、患者アドボカシー、規制当局の各層を含む。
+
+**アプローチ (How):**
+
+1. **KOLを体系的に特定する**
+   - 発表論文数・被引用数でランキング
+   - 臨床試験のPI（Principal Investigator）参加歴
+   - 学会での発表・座長実績
+   - ガイドライン作成委員会への参加
+
+2. **影響力マトリクスを作成する**
+   - 横軸: 影響力の大きさ（Academic Influence + Clinical Influence + Policy Influence）
+   - 縦軸: 自社製品への親和性（Alignment: Advocate / Neutral / Skeptic）
+   - 各象限ごとのエンゲージメント戦略を設計
+
+3. **ステークホルダー全体像を把握する**
+   - 臨床KOL（専門医、一般医）
+   - ペイヤー・HTAのキーパーソン
+   - 患者団体のリーダー
+   - 規制当局の担当者
+
+**データソース (Where):**
+- PubMed著者検索、Scopus著者プロファイル
 - ClinicalTrials.gov PI検索
-- 学会プログラム（ACAAI/EAACI/AAAAI）
+- 学会プログラム（過去3年）
+- ガイドライン著者リスト
+- LinkedInプロファイル（役職・所属の確認）
 
-**アウトプット:** KOLマップ（Influence × Alignment マトリクス）
+**品質基準 (Quality Gate):**
+- [ ] 各地域の上位10名のKOLを特定しているか
+- [ ] 影響力の評価が定量的基準に基づいているか（論文数、試験参加等）
+- [ ] エンゲージメント戦略がKOLの立場に応じて差別化されているか
 
----
-
-## Phase 2: 戦略フロー設計（Day 4-7）
-
-### Step 2.1: U.S. Strategy Flow
-
-**フレームワーク:**
-
-```
-[Market Insight] → [Strategic Imperative] → [Brand Strategy] → [Tactical Plan]
-
-Market Insight:
-  - 患者ジャーニーの障壁
-  - 処方医の意思決定ドライバー
-  - ペイヤーの評価基準
-
-Strategic Imperative:
-  - ポジショニングステートメント
-  - 差別化メッセージ
-  - ターゲットセグメント
-
-Brand Strategy:
-  - Awareness → Trial → Adoption → Loyalty のステージ別戦略
-  - Medical Affairs活動とのシナジー設計
-
-Tactical Plan:
-  - MSLエンゲージメント計画
-  - Speaker Program
-  - Advisory Board
-  - Congress Strategy
-```
-
-**米国固有の考慮事項:**
-- Medicare/Medicaid vs Commercial insurance
-- Specialty Pharmacy distribution
-- REMS (Risk Evaluation and Mitigation Strategy) 要件
-- Patient Support Program (Hub Services)
-
-**アウトプット:** U.S. Strategy Flow図（1ページ）
-
-### Step 2.2: International Strategy (INTL) Flow
-
-**同様のフレームワークを以下の地域に適用:**
-
-| 地域 | 主要市場 | 固有考慮事項 |
-|------|---------|-------------|
-| EU | DE/FR/UK/IT/ES | EMA承認、NICE/G-BA/HAS評価、リファレンスプライシング |
-| Japan | JP | PMDA承認、NHI薬価収載、中医協プロセス |
-| Asia-Pacific | KR/AU/TW | 各国独自の承認・償還プロセス |
-| LATAM | BR/MX | 患者アクセスプログラム |
-
-**国際固有の考慮事項:**
-- HTA (Health Technology Assessment) 提出戦略
-- IRP (International Reference Pricing) への影響
-- ローカルエビデンスニーズ（RWE、疫学データ）
-- 上市タイミングの最適化
-
-**アウトプット:** INTL Strategy Flow図（地域別、2-3ページ）
-
-### Step 2.3: U.S. vs INTL SWOT
-
-**4象限を地域比較で実施:**
-
-| | U.S. | INTL |
-|---|------|------|
-| **Strengths** | 早期承認、高価格許容、大患者プール | 複数市場同時展開、HTA強制力 |
-| **Weaknesses** | ペイヤー障壁(PA/ST)、高自己負担 | 承認遅延、価格圧力 |
-| **Opportunities** | RWE活用、新適応拡大 | 未参入市場、ローカルKOL育成 |
-| **Threats** | バイオシミラー、新規経口薬 | リファレンスプライシング連鎖 |
-
-**分析軸:**
-- 市場アクセスの速度と深さ
-- エビデンスギャップの地域差
-- 競合の地域別ポジション
-- 規制環境の変化
-
-**アウトプット:** U.S. vs INTL SWOT比較表（1ページ）
+**適用例 — HAE:**
+HAEは希少疾患であるため、KOLの数が限られ、同一人物が複数の役割を持つことが多い。ACAAI/EAACI/AAAIの発表者リスト、HAE関連臨床試験のPI一覧が主要な特定ソースとなる。
 
 ---
 
-## Phase 3: Above-Market統合戦略（Day 8-10）
+### 成果物4-5: Strategy Flow（市場A・INTL）とSWOT
 
-### Step 3.1: Above-Market Integration
+**目的 (Why):**
+各市場の特性に応じた戦略を設計し、地域間の一貫性と差異を明確にする。
 
-**目的:** 地域戦略を横断するグローバル統合フレームワーク
+**視点 (Perspective):**
+市場ごとの「患者がどう治療にアクセスするか」を起点とし、そこから逆算して戦略を設計する。
 
-**統合すべき要素:**
-- グローバルブランドストーリー（全地域共通のコアメッセージ）
-- グローバルエビデンス戦略（どのエビデンスをどの地域が活用するか）
-- グローバルKOLネットワーク（地域KOLの連携設計）
-- Launch sequence最適化（どの市場を先行するか）
+**アプローチ (How):**
 
-**フレームワーク:**
-```
-Above-Market Strategy
-  ├── Global Brand Positioning
-  ├── Global Evidence Generation Plan
-  ├── Global Medical Education Platform
-  └── Global Commercial Excellence
-       ├── U.S. Execution
-       ├── EU5 Execution  
-       ├── Japan Execution
-       └── RoW Execution
-```
+1. **Strategy Flowの設計（各市場共通のフレームワーク）**
 
-**アウトプット:** Above-Market Integration図（1ページ）
+   ```
+   [Market Insight] → [Strategic Imperative] → [Brand Strategy] → [Tactical Plan]
+   ```
 
-### Step 3.2: X1→X2→Y→Z Chain（戦略連鎖）
+   各ボックスの中身:
+   - **Market Insight**: 患者ジャーニーの障壁、処方医の意思決定ドライバー、ペイヤーの評価基準
+   - **Strategic Imperative**: ポジショニング、差別化メッセージ、ターゲットセグメント
+   - **Brand Strategy**: Awareness→Trial→Adoption→Loyaltyの各ステージ別戦略
+   - **Tactical Plan**: 各部門の具体的活動計画
 
-**最も重要なフレームワーク。全活動の論理的連鎖を可視化する:**
+2. **市場固有の考慮事項を追加する**
+   - 規制環境（承認プロセス、ラベルの差異）
+   - 償還環境（保険制度、HTA要件、価格参照制度）
+   - 流通構造（Specialty Pharmacy、Hospital Pharmacy等）
+   - 文化的要因（医師の処方行動、患者の治療期待）
 
-```
-X1 (Strategy)           X2 (Tactics)              Y (Evidence)           Z (Publication)
-─────────────           ──────────────            ─────────────          ──────────────
-差別化ポジショニング → MSL Discussion Guide  → RWE Study Design   → Peer-reviewed paper
-                     → Advisory Board        → Expert Consensus   → Congress poster
-                     → Speaker Training      → Case Series        → Review article
-                     
-アクセス確保         → HEOR Model Development → CEA/BIA Results    → HEOR publication
-                     → Payer Advisory Board   → Budget Impact Data → Value dossier
-                     
-適応拡大             → Investigator Meeting   → Phase 3b/4 Trial   → Full publication
-                     → Registry Collaboration → Registry Outcomes   → Registry report
-```
+3. **地域間SWOTを実施する**
+   - 各地域のS/W/O/Tを同じ分析軸で評価
+   - 地域間の相対的な強み・弱みを明示
+   - グローバル戦略への示唆を導出
 
-**設計ルール:**
-1. 全X2はX1から論理的に導出されること
-2. 全YはX2を達成するために必要なエビデンスであること
-3. 全ZはYから生まれる公表物であること
-4. 逆方向のトレーサビリティが可能であること（Z→Y→X2→X1）
+   分析軸:
+   - 市場アクセスの速度と深さ
+   - エビデンスギャップの地域差
+   - 競合の地域別ポジション
+   - 規制環境の変化
 
-**アウトプット:** X1→X2→Y→Z マトリクス（2-3ページ）
+**品質基準 (Quality Gate):**
+- [ ] Strategy Flowの各ボックスが論理的に接続されているか
+- [ ] 市場固有の考慮事項が具体的か（一般論ではなく）
+- [ ] SWOTの各要素に裏付けデータがあるか
+- [ ] 地域間の矛盾がないか（同じ事実に対する異なる解釈がないか）
+
+**適用例 — HAE:**
+米国ではMedicare/Medicaid vs 民間保険、Specialty Pharmacy流通、Patient Support Programが固有考慮事項。EUではEMA承認後のNICE/G-BA/HAS評価とリファレンスプライシング、日本ではPMDA承認と薬価収載プロセスが主要論点となる。
 
 ---
 
-## Phase 4: リスク・脆弱性分析（Day 11-13）
+### 成果物6: Above-Market Integration
 
-### Step 4.1: Vulnerability Analysis
+**目的 (Why):**
+地域戦略のシナジーを最大化し、グローバルレベルでのリソース最適配分を可能にする。
 
-**分析フレームワーク:**
+**視点 (Perspective):**
+「地域戦略の足し算」ではなく「グローバル最適化」として捉える。全体として整合的でありつつ、各地域の自律性を確保する。
 
-| 脆弱性カテゴリ | 具体的リスク | 影響度(1-5) | 発生確率(1-5) | 対策 |
-|---------------|-------------|------------|-------------|------|
-| **競合** | 新規経口薬の承認 | ? | ? | ? |
-| **規制** | ラベル変更/安全性警告 | ? | ? | ? |
-| **市場アクセス** | 不利なHTA評価 | ? | ? | ? |
-| **エビデンス** | 競合の優位なデータ | ? | ? | ? |
-| **患者** | 治療スイッチ | ? | ? | ? |
-| **組織** | リソース制約/優先度変更 | ? | ? | ? |
+**アプローチ (How):**
 
-**シナリオ分析:**
-- Best Case / Base Case / Worst Case の3シナリオ
-- 各シナリオでの戦略的対応計画
-- トリガーポイント（どの指標がどの値になったら対応策を発動するか）
+1. **統合すべき要素を特定する**
+   - グローバルブランドストーリー（全地域共通のコアメッセージ）
+   - グローバルエビデンス戦略（どのエビデンスをどの地域が活用するか）
+   - グローバルKOLネットワーク（地域KOLの連携設計）
+   - 上市シーケンス最適化（どの市場を先行するか）
 
-**アウトプット:** Vulnerability Matrix + シナリオ対応計画（2ページ）
+2. **グローバル-ローカルのバランスを設計する**
 
----
+   ```
+   Above-Market Strategy
+     ├── Global Brand Positioning（全地域共通）
+     ├── Global Evidence Generation Plan（地域横断で活用）
+     ├── Global Medical Education Platform（ローカライズして展開）
+     └── Global Commercial Excellence
+          ├── 市場A Execution（ローカル戦略）
+          ├── 市場B Execution
+          ├── 市場C Execution
+          └── その他市場 Execution
+   ```
 
-## Phase 5: KPI設計と整合性確認（Day 14-16）
+3. **地域間のエビデンス活用マップを作成する**
+   - どのグローバル試験が、どの地域のHTA/規制ニーズを満たすか
+   - 追加で必要なローカルエビデンス（RWE、疫学データ）は何か
 
-### Step 5.1: KPI設計
-
-**3層KPI構造:**
-
-```
-KGI (Key Goal Indicators) — 最終成果指標
-  ├── Market Share (NRx/TRx share)
-  ├── Revenue
-  └── Patient Reach (treated patients)
-
-KPI (Key Performance Indicators) — 先行指標
-  ├── Medical Affairs KPIs
-  │   ├── MSL Reach (unique HCP touchpoints)
-  │   ├── Scientific Exchange Quality Score
-  │   ├── Publication Output (IF-weighted)
-  │   └── Congress Engagement Metrics
-  ├── Marketing KPIs
-  │   ├── Brand Awareness (aided/unaided)
-  │   ├── NRx Growth Rate
-  │   ├── Digital Engagement
-  │   └── Campaign ROI
-  └── HEOR KPIs
-      ├── HTA Submission Outcomes
-      ├── Formulary Access Rate
-      ├── PPPM Cost Position
-      └── RWE Study Completion Rate
-
-KAI (Key Action Indicators) — 活動指標
-  ├── # Advisory Boards conducted
-  ├── # Speaker Programs
-  ├── # MSL-HCP interactions
-  └── # HEOR models completed
-```
-
-### Step 5.2: KPI/KGI Alignment Diagram
-
-**全KPIがKGIにどう貢献するかの因果マップ:**
-
-```
-KAI (活動)          KPI (先行)           KGI (成果)
-───────────         ─────────            ─────────
-MSL活動数      →   HCP認知度      →    NRx Share ↑
-Publication数  →   SOV (Share of Voice) →  Revenue ↑
-HEOR提出       →   Formulary Access →   Patient Reach ↑
-Advisory Board →   Expert Alignment →   Market Share ↑
-```
-
-**アウトプット:** KPI/KGI Alignment Diagram（1ページ）
+**品質基準 (Quality Gate):**
+- [ ] グローバルメッセージが全地域で規制上問題ないか
+- [ ] エビデンス生成計画が地域ニーズをカバーしているか
+- [ ] 上市シーケンスが戦略的に最適化されているか（価格参照制度への影響を考慮）
 
 ---
 
-## Phase 6: IEGP・年次サマリー（Day 17-20）
+### 成果物7: X1→X2→Y→Z Chain（戦略連鎖）
 
-### Step 6.1: IEGP (Integrated Evidence Generation Plan) Strategic Materials
+**目的 (Why):**
+全活動が最終的な戦略目標に論理的に接続されていることを可視化・検証する。「なぜその活動をするのか」に全員が答えられる状態を作る。
 
-**IEGPの構成要素:**
-- Evidence Gap Analysis（エビデンスギャップの特定）
-- Study Prioritization Matrix（優先度マトリクス）
-- Study Concept Sheets（各研究の概要）
-- Timeline & Milestones（タイムライン）
-- Budget Allocation（予算配分）
-- Cross-functional Alignment（部門間整合性）
+**視点 (Perspective):**
+「全活動が最終的に患者アウトカム改善に論理的に繋がっているか」を常に問う。活動ありきではなく、戦略命題からの逆算で設計する。
 
-**X1→X2→Y→Z Chainとの整合確認:**
-全IEGP研究がX1→Zの連鎖のどこに位置するかを明示
+**アプローチ (How):**
 
-### Step 6.2: FY27 HAE Summary
+1. **X1（戦略命題）を定義する**
+   - 「この製品が市場で勝つための3-5の戦略命題」を設定
+   - 各X1は測定可能な成功基準を持つ
+   - 例: 「1st lineとしてのポジション確立」「長期安全性の実証」「アクセス確保」
 
-**年次サマリーの構成:**
-1. Executive Dashboard（1ページ）
-2. 年間KPI達成状況（実績 vs 目標）
-3. 主要活動のハイライト
-4. 競合動向の年間まとめ
-5. 次年度への示唆・推奨
-6. 予算実績
+2. **X2（戦術）をX1から導出する**
+   - 各X1を実現するために必要な具体的活動を列挙
+   - MECE（漏れなく、重複なく）であることを検証
+   - 3部門（Medical/Marketing/HEOR）の活動を含む
 
-### Step 6.3: Executive Summary（最終統合）
+3. **Y（エビデンス）をX2から導出する**
+   - 各X2を実施するために必要なエビデンスを特定
+   - エビデンスが存在しない場合は「生成する」計画を立てる
+   - エビデンスの強度（RCT > RWE > Expert Opinion）を明記
 
-**全成果物を統合した経営層向け要約:**
-- 1ページ: 市場状況・ポジション・主要リスク
-- 1ページ: 戦略方向性（U.S. + INTL）
-- 1ページ: KPI/投資対効果
-- 1ページ: 次年度アクションプラン
+4. **Z（公表物）をYから導出する**
+   - 各Yから生まれる公表物を特定
+   - ジャーナル論文、学会発表、ホワイトペーパー、Value Dossier等
+   - ターゲットジャーナル/学会と投稿タイムラインを設定
+
+5. **双方向トレーサビリティテストを実施する**
+   - 順方向: X1→X2→Y→Z が論理的に接続されているか
+   - 逆方向: Z→Y→X2→X1→最終目標 がトレースできるか
+   - **削除テスト**: 「このエビデンスがなぜ必要か」をX1から説明できないYは削除
+   - **根拠テスト**: 「この活動は何のエビデンスに基づくか」を答えられないX2は再設計
+
+```
+X1 (Strategy)         X2 (Tactics)            Y (Evidence)         Z (Publication)
+─────────────         ──────────────          ─────────────        ──────────────
+戦略命題A         →   戦術A-1             →   エビデンスA-1-a  →   論文/発表
+                  →   戦術A-2             →   エビデンスA-2-a  →   ポスター
+                                          →   エビデンスA-2-b  →   レビュー
+
+戦略命題B         →   戦術B-1             →   エビデンスB-1-a  →   HEOR論文
+                  →   戦術B-2             →   エビデンスB-2-a  →   Value Dossier
+
+戦略命題C         →   戦術C-1             →   エビデンスC-1-a  →   フル論文
+                  →   戦術C-2             →   エビデンスC-2-a  →   レジストリ報告
+```
+
+**品質基準 (Quality Gate):**
+- [ ] 全X2がX1から論理的に導出されているか
+- [ ] 全YがX2を支えるエビデンスになっているか
+- [ ] 全ZがYに基づく公表物であるか
+- [ ] 逆方向のトレーサビリティが成立するか
+- [ ] 孤立したノード（上流と接続されていない活動）がないか
+- [ ] 3部門すべての活動がChainに含まれているか
+
+**適用例 — HAE:**
+X1例: 「差別化ポジショニング確立」→ X2: MSL Discussion Guide作成、Advisory Board開催 → Y: RWE Study、Expert Consensus → Z: Peer-reviewed paper、Congress poster。X1「アクセス確保」→ X2: HEOR Model開発、Payer Advisory Board → Y: CEA/BIA Results → Z: HEOR publication、Value dossier。
 
 ---
 
-## 品質チェックリスト
+### 成果物8: Vulnerability Analysis（脆弱性分析）
+
+**目的 (Why):**
+戦略の暗黙の前提を明示化し、それが崩壊した場合の対応計画を準備する。「想定外」を「想定内」にする。
+
+**視点 (Perspective):**
+「我々の戦略の前提が崩壊するシナリオは何か」を徹底的に問う。楽観バイアスを排除し、最悪のシナリオから逆算する。
+
+**アプローチ (How):**
+
+1. **戦略の暗黙の前提を列挙する**
+   - X1→X2→Y→Z Chainの各接続が依存する前提を洗い出す
+   - 例: 「競合の承認は2年先」「患者プールは安定」「HTA評価は有利」「安全性シグナルは出ない」
+   - 特に「当たり前すぎて言語化されていない前提」を重点的に発掘する
+
+2. **各前提が崩れるシナリオを設計する**
+
+   | 脆弱性カテゴリ | 検討すべきシナリオ例 |
+   |---------------|-------------------|
+   | **競合** | 予想外の早期承認、画期的な新規MoA、大型提携 |
+   | **規制** | ラベル変更、安全性警告、承認遅延 |
+   | **市場アクセス** | 不利なHTA評価、価格引き下げ圧力、フォーミュラリ除外 |
+   | **エビデンス** | 競合の優位なヘッドトゥヘッドデータ、安全性懸念の浮上 |
+   | **患者** | 治療スイッチの加速、患者啓発の失敗 |
+   | **組織** | リソース制約、優先度変更、チーム離脱 |
+
+3. **リスクマトリクスを作成する**
+   - 影響度（1-5）× 発生確率（1-5）で定量評価
+   - 高リスク（スコア15以上）には必ず対応計画を用意
+   - 中リスク（スコア8-14）にはトリガーポイントを設定
+
+4. **各リスクに「トリガーポイント」を設定する**
+   - 「いつ、何が起きたら、対応策を発動するか」を事前に定義
+   - 例: 「競合がPhase 3結果を発表した時点で、差別化メッセージを再評価する」
+
+5. **Best / Base / Worst の3シナリオ対応計画を作成する**
+   - Best Case: 最も有利な環境でのアップサイド戦略
+   - Base Case: 現行想定での実行計画（メインシナリオ）
+   - Worst Case: 最も不利な環境での防御戦略
+
+**品質基準 (Quality Gate):**
+- [ ] 「想定外」が起きた時に「想定内」として対応できる準備があるか
+- [ ] トリガーポイントが具体的かつ測定可能か
+- [ ] 楽観バイアスが排除されているか（自社に不利なシナリオが十分に検討されているか）
+- [ ] 対応計画が実行可能か（リソース・権限が確保されているか）
+
+---
+
+### 成果物9-10: KPI設計とKPI/KGI Alignment
+
+**目的 (Why):**
+戦略の実行度と成果を測定可能にする。全活動が最終成果にどう貢献するかの因果関係を可視化する。
+
+**視点 (Perspective):**
+「測定できないものは管理できない」という原則に基づき、活動→先行指標→最終成果の因果連鎖を設計する。
+
+**アプローチ (How):**
+
+1. **3層KPI構造を設計する**
+
+   ```
+   KGI (Key Goal Indicators) — 最終成果指標
+     ├── 市場シェア
+     ├── 売上
+     └── 患者到達数
+
+   KPI (Key Performance Indicators) — 先行指標
+     ├── Medical Affairs KPIs（MSLリーチ、論文IF、学会エンゲージメント）
+     ├── Marketing KPIs（認知度、新規処方率、デジタルエンゲージメント）
+     └── HEOR KPIs（HTA承認率、フォーミュラリ収載率、PPPM）
+
+   KAI (Key Action Indicators) — 活動指標
+     ├── Advisory Board実施数
+     ├── Speaker Program実施数
+     ├── MSL-HCP接触数
+     └── HEORモデル完成数
+   ```
+
+2. **KPI→KGIの因果マップを作成する**
+   - 各KAIがどのKPIに影響し、各KPIがどのKGIに貢献するか
+   - 因果関係の強度を推定（直接的 / 間接的 / 弱い）
+
+   ```
+   KAI (活動)          KPI (先行)           KGI (成果)
+   ───────────         ─────────            ─────────
+   MSL活動数      →   HCP認知度      →    新規処方シェア↑
+   論文数         →   SOV            →    売上↑
+   HTA提出        →   フォーミュラリ収載 → 患者到達数↑
+   Advisory Board →   Expert Alignment →   市場シェア↑
+   ```
+
+3. **目標値と測定方法を定義する**
+   - 各指標の現状値、目標値、測定頻度、データソース
+   - 目標値は「達成可能だが挑戦的」なレベルに設定
+
+**品質基準 (Quality Gate):**
+- [ ] 全KPIがKGIへの因果パスを持っているか
+- [ ] X1→X2→Y→Z Chainの各ノードに対応するKPIが存在するか
+- [ ] 測定方法が実行可能か（データが入手可能か）
+- [ ] 3部門すべてのKPIがバランスよく含まれているか
+
+---
+
+### 成果物11: IEGP Strategic Materials
+
+**目的 (Why):**
+X1→X2→Y→Z ChainのY（エビデンス）を実現するための具体的な実行計画を策定する。
+
+**視点 (Perspective):**
+「どのエビデンスを、いつ、どのように生成し、どこで活用するか」を統合的に計画する。
+
+**アプローチ (How):**
+
+1. **Evidence Gap Analysisを実施する**
+   - X1→X2→Y→Z Chainで特定されたY（必要なエビデンス）を一覧化
+   - 各Yについて、既に存在するエビデンスと不足するエビデンスを分類
+   - ギャップの優先度をX1（戦略命題）の重要度で順位付け
+
+2. **Study Prioritization Matrixを作成する**
+   - 横軸: 戦略的重要度（X1への貢献度）
+   - 縦軸: 実現可能性（時間、コスト、患者リクルート難易度）
+   - 各象限ごとの意思決定（優先実施 / 外部委託 / 延期 / 中止）
+
+3. **Study Concept Sheetsを作成する**
+   - 各研究の目的、デザイン、対象患者、主要エンドポイント
+   - X1→X2→Y→Z Chainのどこに位置するか明示
+   - 予想タイムラインと予算
+
+4. **Cross-functional Alignmentを確保する**
+   - Medical/Marketing/HEORの各部門がIEGPの優先度に合意
+   - エビデンス生成の責任分担と承認プロセスの明確化
+
+**品質基準 (Quality Gate):**
+- [ ] 全てのエビデンスギャップがX1→X2→Y→Z Chainにトレース可能か
+- [ ] 優先度が戦略的根拠に基づいているか
+- [ ] タイムラインが上市/HTA提出スケジュールと整合しているか
+
+---
+
+### 成果物12: Executive Summary と年次サマリー
+
+**目的 (Why):**
+全成果物を統合し、経営層の意思決定に必要十分な情報を凝縮する。
+
+**視点 (Perspective):**
+「経営層が15分で状況を把握し、意思決定できるか」を基準に情報を取捨選択する。
+
+**アプローチ (How):**
+
+1. **Executive Summary（4ページ以内）**
+   - Page 1: 市場状況・競合ポジション・主要リスク
+   - Page 2: 戦略方向性（市場A + 国際）
+   - Page 3: KPI/投資対効果
+   - Page 4: 次年度アクションプラン
+
+2. **年次サマリー**
+   - Executive Dashboard（1ページ）
+   - KPI達成状況（実績 vs 目標）
+   - 主要活動のハイライト
+   - 競合動向の年間まとめ
+   - 次年度への示唆・推奨
+   - 予算実績
+
+**品質基準 (Quality Gate):**
+- [ ] 経営層が追加質問なしに意思決定できる情報が含まれているか
+- [ ] 数字で語れるものは数字で語っているか
+- [ ] 前年との比較が含まれているか
+- [ ] 推奨事項が具体的で実行可能か
+
+---
+
+## Part 3: 疾患への適用ガイド
+
+### 3.1 新しい疾患に適用する際のチェックリスト
+
+新しい疾患/製品にこのフレームワークを適用する際、以下を事前に確認する:
+
+- [ ] **疾患の基本情報**: 患者数、診断率、現行治療、主要ガイドライン
+- [ ] **競合環境**: 既存製品数、パイプライン数、市場成熟度
+- [ ] **データの入手可能性**: 疫学データ、臨床試験データ、RWE、市場データ
+- [ ] **組織のリソース**: 分析チームの人数、利用可能なツール、予算
+- [ ] **タイムライン**: 上市予定、HTA提出期限、戦略レビューの時期
+- [ ] **ステークホルダー**: 成果物の利用者、承認者、レビュー体制
+
+### 3.2 疾患特性に応じたカスタマイズ
+
+#### 希少疾患 vs 大規模市場
+
+| 要素 | 希少疾患 | 大規模市場 |
+|------|---------|----------|
+| **疾患ランドスケープ** | 診断遅延・未診断患者の推定が重要。患者レジストリが主要データソース | 大規模疫学データが利用可能。サブタイプ別のセグメンテーションが重要 |
+| **競合分析** | 競合が少ないため、MoA別の深い分析が可能。未充足ニーズの定量化が差別化の鍵 | 競合が多いため、ポジショニングマップとシェア分析が重要 |
+| **KOLマップ** | KOLが少なく、同一人物が複数役割。全KOLとの関係構築が現実的 | KOLが多いため、Tier分けとターゲティングが必要 |
+| **市場アクセス** | Orphan Drug指定、高薬価の正当化、患者支援プログラムが重要 | 価格競争力、フォーミュラリポジション、Step Therapy対応が重要 |
+| **KPI** | 患者到達数（絶対数）、診断率向上が重要なKGI | 市場シェア（相対値）、処方スイッチ率が重要なKGI |
+
+#### オンコロジー vs 慢性疾患
+
+| 要素 | オンコロジー | 慢性疾患 |
+|------|------------|---------|
+| **疾患ランドスケープ** | 遺伝子変異別のサブタイプ分類、バイオマーカー戦略が重要 | 重症度分類、合併症パターン、長期アウトカムが重要 |
+| **競合分析** | 治療ライン別（1L/2L/3L+）のポジショニングが必須 | 治療ステップ（Step Therapy）と長期使用データが重要 |
+| **X1→X2→Y→Z** | OS/PFS等のハードエンドポイント中心、コンパニオン診断連携 | PRO/QOL等のソフトエンドポイント、長期安全性データが重要 |
+| **Vulnerability** | 競合のブレークスルーセラピー指定、バイオマーカー変更リスク | ジェネリック/バイオシミラー参入、ガイドライン変更リスク |
+| **KPI** | 奏効率、治療ライン別シェア | アドヒアランス率、患者QOLスコア |
+
+#### 初参入 vs 既存市場
+
+| 要素 | 初参入（カテゴリ創造） | 既存市場（シェア獲得） |
+|------|---------------------|---------------------|
+| **疾患ランドスケープ** | 疾患啓発・市場創造が戦略の中心 | 市場の成熟度と成長予測が重要 |
+| **競合分析** | 直接競合なし→間接競合（代替療法）の分析が重要 | 直接競合との詳細な比較分析が中心 |
+| **Strategy Flow** | 疾患認知→診断→治療開始のファネル設計 | ブランドスイッチ・新規処方獲得の設計 |
+| **X1→X2→Y→Z** | 疾患教育・啓発活動がX2の中心 | 差別化エビデンスの生成がX2の中心 |
+| **KPI** | 診断率、疾患認知度、治療開始率 | 市場シェア、スイッチ率、SOV |
+
+#### バイオロジクス vs 低分子
+
+| 要素 | バイオロジクス | 低分子 |
+|------|-------------|--------|
+| **競合分析** | 免疫原性、投与経路（SC/IV）、コールドチェーンが差別化要因 | 薬物相互作用、代謝経路、ジェネリック参入時期が重要 |
+| **市場アクセス** | バイオシミラー対策、Specialty Pharmacy流通 | ジェネリック対策、一般薬局流通 |
+| **Vulnerability** | バイオシミラー参入、製造問題リスク | 特許切れ、ジェネリック参入 |
+| **IEGP** | 免疫原性の長期データ、RWE、バイオマーカー研究 | 比較有効性、長期安全性、費用対効果研究 |
+
+### 3.3 適用の実践ステップ
+
+1. **疾患/製品の特性を分類する**: 上記の4軸（希少/大規模、オンコ/慢性、初参入/既存、バイオ/低分子）で位置を特定
+2. **カスタマイズが必要な成果物を特定する**: 各軸の特性に応じてPart 2の方法論を調整
+3. **データソースを確認する**: 疾患/地域に特化したデータソースを事前に特定
+4. **タイムラインを設定する**: 標準20日を基準に、複雑さに応じて調整
+5. **レビュー体制を構築する**: 各成果物のレビュワーと承認者を事前に決定
+
+---
+
+## 品質チェックリスト（全成果物共通）
 
 | # | チェック項目 | 確認者 |
 |---|------------|--------|
@@ -337,20 +627,20 @@ Advisory Board →   Expert Alignment →   Market Share ↑
 | 2 | 全YがX2を支えるエビデンスになっているか | Medical Affairs |
 | 3 | 全ZがYに基づく公表物であるか | Publications |
 | 4 | KPIとKGIの因果関係が明確か | Analytics |
-| 5 | U.S.とINTLの整合性があるか | Above-Market |
+| 5 | 地域間戦略の整合性があるか | Above-Market |
 | 6 | Vulnerability Analysisが全リスクを網羅しているか | Risk Management |
-| 7 | IEGPが戦略連鎖と整合しているか | HEOR |
+| 7 | IEGPがX1→X2→Y→Z Chainと整合しているか | HEOR |
 | 8 | Executive Summaryが意思決定に十分な情報を含むか | Executive Sponsor |
 
 ---
 
-## タイムライン
+## 標準タイムライン
 
 | Day | Phase | 成果物 |
 |-----|-------|--------|
-| 1-3 | 疾患ランドスケープ | 競合分析、KOLマップ |
-| 4-7 | 戦略フロー | U.S. Flow, INTL Flow, SWOT |
-| 8-10 | Above-Market | 統合戦略、X1→X2→Y→Z |
+| 1-3 | 疾患ランドスケープ | 疾患理解、競合分析、KOLマップ |
+| 4-7 | 戦略フロー設計 | 市場A Flow、INTL Flow、SWOT |
+| 8-10 | グローバル統合 | Above-Market Integration、X1→X2→Y→Z Chain |
 | 11-13 | リスク分析 | Vulnerability Analysis |
 | 14-16 | KPI設計 | KPI体系、KPI/KGI Alignment |
-| 17-20 | 統合・サマリー | IEGP、FY27 Summary、Executive Summary |
+| 17-20 | 統合・サマリー | IEGP、年次サマリー、Executive Summary |
